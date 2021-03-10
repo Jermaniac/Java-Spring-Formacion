@@ -1,0 +1,14 @@
+cursojava/spring/datos/modelobanco/entidades/Cliente.class
+cursojava/spring/datos/modelobanco/servicios/OperacionesBancariasBean.class
+cursojava/spring/datos/modelobanco/entidades/CuentaPK.class
+cursojava/spring/datos/modelobanco/dao/NegocioException.class
+cursojava/spring/datos/modelobanco/servicios/OperacionesBancarias.class
+cursojava/spring/datos/modelobanco/entidades/DatosBasicosCuenta.class
+cursojava/spring/datos/validaciones/ValidadorNif.class
+cursojava/spring/datos/modelobanco/dao/GestionClientes.class
+cursojava/spring/datos/modelobanco/entidades/Movimiento.class
+cursojava/spring/datos/validaciones/Nif.class
+cursojava/spring/datos/modelobanco/pruebas/ProbarModeloBanco.class
+cursojava/spring/datos/modelobanco/dao/jpa/GestionClientesJPABean.class
+cursojava/spring/datos/modelobanco/entidades/DatosBasicosCliente.class
+cursojava/spring/datos/modelobanco/entidades/Cuenta.class

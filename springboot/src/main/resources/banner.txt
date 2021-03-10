@@ -1,0 +1,14 @@
+###################################################
+###################################################
+
+Practicas Curso Spring Boot
+
+${spring.application.name}
+
+SpringBoot: ${spring-boot.version}
+
+Propiedades Maven:
+
+JDK: @env.JAVA_HOME@
+Aplicacion: @project.name@ - @project.version@
+

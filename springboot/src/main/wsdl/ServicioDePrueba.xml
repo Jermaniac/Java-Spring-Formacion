@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://servicios.soap.cursojava/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="ServicioDePruebaService" targetNamespace="http://servicios.soap.cursojava/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://servicios.soap.cursojava/" elementFormDefault="unqualified" targetNamespace="http://servicios.soap.cursojava/" version="1.0">
+
+  <xs:element name="altaCompra" type="tns:altaCompra"/>
+
+  <xs:element name="altaCompraResponse" type="tns:altaCompraResponse"/>
+
+  <xs:element name="buscarPorCodigo" type="tns:buscarPorCodigo"/>
+
+  <xs:element name="buscarPorCodigoResponse" type="tns:buscarPorCodigoResponse"/>
+
+  <xs:element name="echo" type="tns:echo"/>
+
+  <xs:element name="echoResponse" type="tns:echoResponse"/>
+
+  <xs:element name="lasCompras" type="tns:lasCompras"/>
+
+  <xs:element name="lasComprasResponse" type="tns:lasComprasResponse"/>
+
+  <xs:complexType name="altaCompra">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:compra"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="compra">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cliente" type="tns:datosCliente"/>
+      <xs:element minOccurs="0" name="codigo" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="entradas" nillable="true" type="tns:entrada"/>
+      <xs:element minOccurs="0" name="fecha" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="importe" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="datosCliente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="apellidos" type="xs:string"/>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="nombre" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="entrada">
+    <xs:sequence>
+      <xs:element name="cantidad" type="xs:int"/>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="precio" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="refArticulo" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="altaCompraResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="lasCompras">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="lasComprasResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:compra"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="buscarPorCodigo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="buscarPorCodigoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:compra"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="echo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="echoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="echoResponse">
+    <wsdl:part element="tns:echoResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="altaCompra">
+    <wsdl:part element="tns:altaCompra" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="altaCompraResponse">
+    <wsdl:part element="tns:altaCompraResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarPorCodigo">
+    <wsdl:part element="tns:buscarPorCodigo" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="echo">
+    <wsdl:part element="tns:echo" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="lasComprasResponse">
+    <wsdl:part element="tns:lasComprasResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="lasCompras">
+    <wsdl:part element="tns:lasCompras" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarPorCodigoResponse">
+    <wsdl:part element="tns:buscarPorCodigoResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ServicioDePrueba">
+    <wsdl:operation name="altaCompra">
+      <wsdl:input message="tns:altaCompra" name="altaCompra">
+    </wsdl:input>
+      <wsdl:output message="tns:altaCompraResponse" name="altaCompraResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lasCompras">
+      <wsdl:input message="tns:lasCompras" name="lasCompras">
+    </wsdl:input>
+      <wsdl:output message="tns:lasComprasResponse" name="lasComprasResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarPorCodigo">
+      <wsdl:input message="tns:buscarPorCodigo" name="buscarPorCodigo">
+    </wsdl:input>
+      <wsdl:output message="tns:buscarPorCodigoResponse" name="buscarPorCodigoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="echo">
+      <wsdl:input message="tns:echo" name="echo">
+    </wsdl:input>
+      <wsdl:output message="tns:echoResponse" name="echoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServicioDePruebaServiceSoapBinding" type="tns:ServicioDePrueba">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="altaCompra">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="altaCompra">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="altaCompraResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lasCompras">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="lasCompras">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="lasComprasResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarPorCodigo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="buscarPorCodigo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="buscarPorCodigoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="echo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="echo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="echoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioDePruebaService">
+    <wsdl:port binding="tns:ServicioDePruebaServiceSoapBinding" name="ServicioDePruebaPort">
+      <soap:address location="http://localhost:8080/serviciossoap/ServicioDePrueba"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

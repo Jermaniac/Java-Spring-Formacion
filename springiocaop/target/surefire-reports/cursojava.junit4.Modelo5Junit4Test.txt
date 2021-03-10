@@ -1,0 +1,53 @@
+-------------------------------------------------------------------------------
+Test set: cursojava.junit4.Modelo5Junit4Test
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 1, Errors: 2, Skipped: 0, Time elapsed: 4.165 sec <<< FAILURE!
+nuevaPrueba(cursojava.junit4.Modelo5Junit4Test)  Time elapsed: 0.051 sec  <<< FAILURE!
+java.lang.AssertionError: Expected test to throw (an instance of java.lang.IllegalStateException and exception with message a string containing "Tarjeta no valida")
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.rules.ExpectedException.failDueToMissingException(ExpectedException.java:278)
+	at org.junit.rules.ExpectedException.access$100(ExpectedException.java:111)
+	at org.junit.rules.ExpectedException$ExpectedExceptionStatement.evaluate(ExpectedException.java:264)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:299)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:293)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+
+otraPrueba(cursojava.junit4.Modelo5Junit4Test)  Time elapsed: 2.017 sec  <<< ERROR!
+org.junit.runners.model.TestTimedOutException: test timed out after 2 seconds
+	at java.base@15.0.1/java.lang.Thread.sleep(Native Method)
+	at app//cursojava.junit4.Modelo5Junit4Test.otraPrueba(Modelo5Junit4Test.java:58)
+	at java.base@15.0.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@15.0.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base@15.0.1/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@15.0.1/java.lang.reflect.Method.invoke(Method.java:564)
+	at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at app//org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at app//org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
+	at app//org.junit.rules.ExpectedException$ExpectedExceptionStatement.evaluate(ExpectedException.java:258)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:299)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:293)
+	at java.base@15.0.1/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base@15.0.1/java.lang.Thread.run(Thread.java:832)
+
+unaPrueba(cursojava.junit4.Modelo5Junit4Test)  Time elapsed: 2.01 sec  <<< ERROR!
+org.junit.runners.model.TestTimedOutException: test timed out after 2 seconds
+	at java.base@15.0.1/java.lang.Thread.sleep(Native Method)
+	at app//cursojava.junit4.Modelo5Junit4Test.unaPrueba(Modelo5Junit4Test.java:49)
+	at java.base@15.0.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@15.0.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base@15.0.1/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@15.0.1/java.lang.reflect.Method.invoke(Method.java:564)
+	at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at app//org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at app//org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
+	at app//org.junit.rules.ExpectedException$ExpectedExceptionStatement.evaluate(ExpectedException.java:258)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:299)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:293)
+	at java.base@15.0.1/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base@15.0.1/java.lang.Thread.run(Thread.java:832)
+

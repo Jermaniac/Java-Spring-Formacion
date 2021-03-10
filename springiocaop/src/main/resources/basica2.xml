@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+
+	<!-- Con abstract al crear el bean con la fabrica da error, tienes que crear 
+		el bean con herencia -->
+	<bean name="clienteBase"
+		class="cursojava.spring.ioc.beans.Cliente" abstract="true">
+		<property name="nif" value="01234567L"></property>
+		<property name="nombre" value="Juan"></property>
+		<property name="apellidos" value="Lopez"></property>
+		<property name="domicilio">
+			<bean class="cursojava.spring.ioc.beans.Domicilio">
+				<property name="nombre" value="Calle Serrano, 48"></property>
+				<property name="localidad" value="Madrid"></property>
+				<property name="provincia" value="Madrid"></property>
+			</bean>
+		</property>
+		<property name="cuenta" value="0001-0001-23-0123456789" />
+	</bean>
+
+	<!--  Aqui creamos el bean de cliente base con herencia -->
+	<bean name="prueba1" class="cursojava.spring.ioc.beans.Cliente"
+		parent="clienteBase">
+
+	</bean>
+
+	<bean name="prueba2" class="cursojava.spring.ioc.beans.Cliente"
+		parent="clienteBase">
+		<property name="nombre" value="German" />
+		<property name="domicilio.nombre" value="C/ Alcala"></property>
+	</bean>
+
+	<bean id="gestorClientes"
+		name="gClientes gMockClientes, gTestClientes; gCheckClientes"
+		class="cursojava.spring.ioc.beans.GestionClientesBean"
+		init-method="inicializar" destroy-method="limpiar">
+	</bean>
+	<bean id="gestorClientesAsincrono"
+		class="cursojava.spring.ioc.beans.GestionClientesAsincronaBean"></bean>
+
+	<bean id="servicioTrazas"
+		class="cursojava.spring.ioc.beans.ServicioTrazasBean">
+
+	</bean>
+
+</beans>

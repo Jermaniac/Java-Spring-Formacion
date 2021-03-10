@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vista Soap</title>
+<link href="/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
+<script type="text/javascript" src="/js/jquery-3.5.1.slim.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/popper.min.js"></script>
+</head>
+<body>
+
+	<div class="container">
+		<div>
+			<p th:text="${mensaje}"> Mensaje: </p>
+		</div>
+		<div>
+			<table class="table table-striped table-dark">
+				<thead>
+					<tr>
+						<th>Codigo</th>
+						<th>ClienteID</th>
+						<th>Entradas</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="compra : ${compras}">
+						<td
+							th:text="${compra.codigo}"></td>
+						<td th:text="${compra.cliente.id}"></td>
+						<td th:text="${compra.entradas.size()}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,2 @@
+# Con este comando se pone en funcionamiento la base de datos
+docker run --name dbmysql -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=Fedora2020 mysql

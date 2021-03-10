@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Buscar Cuentas</title>
+<link href="/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
+<script type="text/javascript" src="/js/jquery-3.5.1.slim.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/popper.min.js"></script>
+</head>
+<body>
+
+	<div class="container">
+		<div>
+			<table class="table table-striped table-dark">
+				<thead>
+					<tr>
+						<th>Codigo</th>
+						<th>Saldo</th>
+						<th>Fecha Alta</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="cuenta : ${datos}">
+						<td
+							th:text="${cuenta.pk.banco}+'-'+${cuenta.pk.sucursal}+'-'+${cuenta.pk.numero}"></td>
+						<td th:text="${cuenta.saldo}"></td>
+						<td th:text="${cuenta.fechaAlta}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+
+</body>
+</html>

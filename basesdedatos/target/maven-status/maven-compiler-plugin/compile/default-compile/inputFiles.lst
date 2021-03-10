@@ -1,0 +1,14 @@
+/home/feynman/eclipse-workspace/basesdedatos/src/main/java/cursojava/spring/datos/modelobanco/servicios/OperacionesBancariasBean.java
+/home/feynman/eclipse-workspace/basesdedatos/src/main/java/cursojava/spring/datos/modelobanco/dao/GestionClientes.java
+/home/feynman/eclipse-workspace/basesdedatos/src/main/java/cursojava/spring/datos/modelobanco/entidades/DatosBasicosCuenta.java
+/home/feynman/eclipse-workspace/basesdedatos/src/main/java/cursojava/spring/datos/validaciones/Nif.java
+/home/feynman/eclipse-workspace/basesdedatos/src/main/java/cursojava/spring/datos/modelobanco/dao/jpa/GestionClientesJPABean.java
+/home/feynman/eclipse-workspace/basesdedatos/src/main/java/cursojava/spring/datos/validaciones/ValidadorNif.java
+/home/feynman/eclipse-workspace/basesdedatos/src/main/java/cursojava/spring/datos/modelobanco/entidades/Movimiento.java
+/home/feynman/eclipse-workspace/basesdedatos/src/main/java/cursojava/spring/datos/modelobanco/entidades/Cuenta.java
+/home/feynman/eclipse-workspace/basesdedatos/src/main/java/cursojava/spring/datos/modelobanco/servicios/OperacionesBancarias.java
+/home/feynman/eclipse-workspace/basesdedatos/src/main/java/cursojava/spring/datos/modelobanco/entidades/CuentaPK.java
+/home/feynman/eclipse-workspace/basesdedatos/src/main/java/cursojava/spring/datos/modelobanco/entidades/DatosBasicosCliente.java
+/home/feynman/eclipse-workspace/basesdedatos/src/main/java/cursojava/spring/datos/modelobanco/pruebas/ProbarModeloBanco.java
+/home/feynman/eclipse-workspace/basesdedatos/src/main/java/cursojava/spring/datos/modelobanco/entidades/Cliente.java
+/home/feynman/eclipse-workspace/basesdedatos/src/main/java/cursojava/spring/datos/modelobanco/dao/NegocioException.java

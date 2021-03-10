@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:lang="http://www.springframework.org/schema/lang"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+	<!-- Para activar las anotaciones a nivel de componentes como @Autowired -->
+	<context:annotation-config />
+	<!-- Con esto incorporamos el segundo archivo config -->
+<!-- 	<import resource="basica2.xml" />
+ -->
+	<bean id="juan" class="cursojava.spring.ioc.beans.Cliente">
+		<property name="nif" value="01234567L"></property>
+		<property name="nombre" value="Juan"></property>
+		<property name="apellidos" value="Lopez"></property>
+		<property name="domicilio">
+			<bean class="cursojava.spring.ioc.beans.Domicilio">
+				<property name="nombre" value="Calle Serrano, 48"></property>
+				<property name="localidad" value="Madrid"></property>
+				<property name="provincia" value="Madrid"></property>
+			</bean>
+		</property>
+		<property name="cuenta" value="0001-0001-23-0123456789" />
+	</bean>
+
+	<!-- Le ponemos un id para poder referenciarlo y poder usarlo en otro bean -->
+	<bean id="domicilio1" class="cursojava.spring.ioc.beans.Domicilio">
+		<property name="nombre" value="Calle Serrano, 48"></property>
+		<property name="localidad" value="Valencia"></property>
+		<property name="provincia" value="Valencia"></property>
+	</bean>
+
+	<bean id="luis" class="cursojava.spring.ioc.beans.Cliente"
+		scope="prototype">
+		<constructor-arg value="20202020A"></constructor-arg>
+		<constructor-arg value="Luis"></constructor-arg>
+		<constructor-arg value="Perez"></constructor-arg>
+		<constructor-arg ref="domicilio1"></constructor-arg>
+	</bean>
+	<!-- Esta es otra forma de poner valores a un bean usando la P -->
+	<bean id="ana" class="cursojava.spring.ioc.beans.Cliente"
+		lazy-init="true" p:nif="30303030A" p:nombre="Ana"
+		p:apellidos="Gonzalez" p:domicilio-ref="domicilio1"></bean>
+
+	<bean id="catalogo"
+		class="cursojava.spring.ioc.beans.CatalogoDeTiposSoportados">
+
+		<property name="activo" value="true">
+		</property>
+
+		<property name="cantidad" value="8237.23">
+		</property>
+
+		<property name="clase"
+			value="cursojava.spring.ioc.beans.CatalogoDeTiposSoportados">
+		</property>
+
+		<property name="fecha" value="2021-08-10">
+		</property>
+
+		<property name="expresion" value="^[0-8]{8}$">
+		</property>
+
+		<property name="letra" value="€">
+		</property>
+
+		<property name="fichero"
+			value="src/main/resources/basico.xml">
+		</property>
+
+		<property name="idioma" value="en_US">
+		</property>
+
+		<property name="matrizCadenas">
+			<array>
+				<value>Cadena uno</value>
+				<value>Cadena dos</value>
+			</array>
+		</property>
+
+		<property name="listaNumeros" ref="datosPrueba1">
+			<!-- Vamos a utilizar los datos de util:list -->
+			<!-- <list> <value>10</value> <value>20</value> <value>30</value> </list> -->
+		</property>
+
+		<property name="conjuntoCadenas">
+			<set>
+				<value>Una</value>
+				<value>Dos</value>
+			</set>
+		</property>
+
+		<property name="tabla" ref="tablaCodigos">
+			<!-- Vamos utilizar los datos que hemos definido en util:map -->
+			<!-- <map> <entry key="28" value="Madrid" /> Tambien se puede poner asi 
+				<entry key="08"> <value>Barcelona</value> </entry> </map> -->
+		</property>
+
+		<property name="propiedades" ref="pruebasDB">
+			<!-- Vamos a utilizar los datos que hemos definido en util:properties -->
+			<!-- <props> <prop key="jdbc.user"> Prueba </prop> <prop key="jdbc.pass"> 
+				Clave </prop> </props> -->
+		</property>
+		<property name="url" value="http://www.apache.org">
+		</property>
+
+	</bean>
+
+	<util:list id="datosPrueba1">
+		<value>1000</value>
+		<value>2000</value>
+		<value>3000</value>
+		<value>4000</value>
+	</util:list>
+
+	<util:map id="tablaCodigos">
+		<entry key="08" value="Barcelona" />
+		<entry key="28" value="Madrid" />
+	</util:map>
+
+	<util:properties id="pruebasDB">
+		<prop key="jdbc.user">
+			PruebaUTIL
+		</prop>
+		<prop key="jdbc.pass">
+			ClaveUTIL
+		</prop>
+	</util:properties>
+
+	<!-- Registramos editores de propiedades personalizados (en este caso para 
+		la fecha) -->
+	<bean
+		class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<property name="propertyEditorRegistrars">
+			<array>
+				<bean
+					class="cursojava.spring.ioc.editors.PersonalizarFormatoFecha">
+					<property name="pattern" value="yyyy-MM-dd"></property>
+				</bean>
+				<!-- <bean class="cursojava.spring.ioc.editors.PersonalizarFormatoFecha"/> -->
+			</array>
+		</property>
+		<property name="customEditors">
+			<map>
+				<entry key="cursojava.spring.ioc.beans.CuentaBancaria"
+					value="cursojava.spring.ioc.editors.CuentaBancariaPropertyEditor" />
+			</map>
+		</property>
+	</bean>
+
+	<!-- Colocamos editor de propiedades completo -->
+
+</beans>
